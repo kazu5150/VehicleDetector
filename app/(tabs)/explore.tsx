@@ -1,8 +1,6 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import { Collapsible } from '@/components/Collapsible';
-import { ExternalLink } from '@/components/ExternalLink';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
@@ -11,86 +9,83 @@ import { IconSymbol } from '@/components/ui/IconSymbol';
 export default function TabTwoScreen() {
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
+      headerBackgroundColor={{ light: '#00FF00', dark: '#1D3D47' }}
       headerImage={
         <IconSymbol
           size={310}
-          color="#808080"
-          name="chevron.left.forwardslash.chevron.right"
+          color="#00FF00"
+          name="car.fill"
           style={styles.headerImage}
         />
       }>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Explore</ThemedText>
+        <ThemedText type="title">VehicleDetectorについて</ThemedText>
       </ThemedView>
-      <ThemedText>This app includes example code to help you get started.</ThemedText>
-      <Collapsible title="File-based routing">
+      
+      <ThemedText>
+        VehicleDetectorは、最先端の機械学習技術を使用して、デバイスのカメラからリアルタイムで車両を検出するアプリです。
+      </ThemedText>
+
+      <Collapsible title="検出可能な車両">
         <ThemedText>
-          This app has two screens:{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> and{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/explore.tsx</ThemedText>
+          このアプリは以下の車両タイプを検出できます：
         </ThemedText>
+        <ThemedText type="defaultSemiBold">• 乗用車（一般的な自動車）</ThemedText>
+        <ThemedText type="defaultSemiBold">• トラック（商用車両）</ThemedText>
+        <ThemedText type="defaultSemiBold">• バス（公共交通機関）</ThemedText>
         <ThemedText>
-          The layout file in <ThemedText type="defaultSemiBold">app/(tabs)/_layout.tsx</ThemedText>{' '}
-          sets up the tab navigator.
-        </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/router/introduction">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Android, iOS, and web support">
-        <ThemedText>
-          You can open this project on Android, iOS, and the web. To open the web version, press{' '}
-          <ThemedText type="defaultSemiBold">w</ThemedText> in the terminal running this project.
+          設定で信頼度の閾値を調整して、精度と感度のバランスを制御できます。
         </ThemedText>
       </Collapsible>
-      <Collapsible title="Images">
+
+      <Collapsible title="使い方">
         <ThemedText>
-          For static images, you can use the <ThemedText type="defaultSemiBold">@2x</ThemedText> and{' '}
-          <ThemedText type="defaultSemiBold">@3x</ThemedText> suffixes to provide files for
-          different screen densities
+          1. <ThemedText type="defaultSemiBold">カメラ</ThemedText>タブに移動
         </ThemedText>
-        <Image source={require('@/assets/images/react-logo.png')} style={{ alignSelf: 'center' }} />
-        <ExternalLink href="https://reactnative.dev/docs/images">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
+        <ThemedText>
+          2. カメラ権限を許可
+        </ThemedText>
+        <ThemedText>
+          3. カメラを車両に向ける
+        </ThemedText>
+        <ThemedText>
+          4. <ThemedText type="defaultSemiBold">検出開始</ThemedText>ボタンをタップ
+        </ThemedText>
+        <ThemedText>
+          5. 歯車アイコンで設定を調整して最適なパフォーマンスを実現
+        </ThemedText>
       </Collapsible>
-      <Collapsible title="Custom fonts">
+
+      <Collapsible title="パフォーマンスのコツ">
         <ThemedText>
-          Open <ThemedText type="defaultSemiBold">app/_layout.tsx</ThemedText> to see how to load{' '}
-          <ThemedText style={{ fontFamily: 'SpaceMono' }}>
-            custom fonts such as this one.
-          </ThemedText>
+          最良の結果を得るには：
         </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/versions/latest/sdk/font">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
+        <ThemedText>• 明るい環境で使用する</ThemedText>
+        <ThemedText>• 車両をカメラの視野内に明確に収める</ThemedText>
+        <ThemedText>• バッテリーを節約するため設定でFPSを下げる</ThemedText>
+        <ThemedText>• 誤検出を減らすため信頼度の閾値を上げる</ThemedText>
       </Collapsible>
-      <Collapsible title="Light and dark mode components">
+
+      <Collapsible title="技術">
         <ThemedText>
-          This template has light and dark mode support. The{' '}
-          <ThemedText type="defaultSemiBold">useColorScheme()</ThemedText> hook lets you inspect
-          what the user&apos;s current color scheme is, and so you can adjust UI colors accordingly.
+          VehicleDetectorで使用している技術：
         </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/develop/user-interface/color-themes/">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
+        <ThemedText type="defaultSemiBold">• YOLO（You Only Look Once）ニューラルネットワーク</ThemedText>
+        <ThemedText type="defaultSemiBold">• リアルタイム物体検出アルゴリズム</ThemedText>
+        <ThemedText type="defaultSemiBold">• モバイル向けに最適化</ThemedText>
+        <ThemedText>
+          プライバシーと速度のため、すべての処理はデバイス内で実行されます。
+        </ThemedText>
       </Collapsible>
-      <Collapsible title="Animations">
+
+      <Collapsible title="プライバシーとデータ">
         <ThemedText>
-          This template includes an example of an animated component. The{' '}
-          <ThemedText type="defaultSemiBold">components/HelloWave.tsx</ThemedText> component uses
-          the powerful <ThemedText type="defaultSemiBold">react-native-reanimated</ThemedText>{' '}
-          library to create a waving hand animation.
+          あなたのプライバシーを大切にします：
         </ThemedText>
-        {Platform.select({
-          ios: (
-            <ThemedText>
-              The <ThemedText type="defaultSemiBold">components/ParallaxScrollView.tsx</ThemedText>{' '}
-              component provides a parallax effect for the header image.
-            </ThemedText>
-          ),
-        })}
+        <ThemedText>• すべての処理はデバイス内で実行</ThemedText>
+        <ThemedText>• 画像やデータを外部サーバーに送信しません</ThemedText>
+        <ThemedText>• カメラアクセスはリアルタイム検出のみに使用</ThemedText>
+        <ThemedText>• 個人データの収集や保存はありません</ThemedText>
       </Collapsible>
     </ParallaxScrollView>
   );
