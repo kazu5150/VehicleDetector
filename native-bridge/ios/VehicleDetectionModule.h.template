@@ -1,0 +1,17 @@
+//
+//  VehicleDetectionModule.h
+//  VehicleDetector
+//
+//  Core ML Vehicle Detection Native Module
+//
+
+#import <React/RCTBridgeModule.h>
+#import <CoreML/CoreML.h>
+#import <Vision/Vision.h>
+
+@interface VehicleDetectionModule : NSObject <RCTBridgeModule>
+
+@property (nonatomic, strong) MLModel *yoloModel;
+@property (nonatomic, strong) VNCoreMLModel *visionModel;
+
+@end

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { View, StyleSheet, Dimensions } from 'react-native';
 import { CameraView as ExpoCamera, useCameraPermissions } from 'expo-camera';
 import { ThemedView } from './ThemedView';
@@ -9,11 +9,11 @@ const { width, height } = Dimensions.get('window');
 interface CameraViewProps {
   onDetection?: (detections: any[]) => void;
   isDetectionEnabled: boolean;
+  currentFPS?: number;
 }
 
-export default function CameraView({ onDetection, isDetectionEnabled }: CameraViewProps) {
+export default function CameraView({ onDetection, isDetectionEnabled, currentFPS }: CameraViewProps) {
   const [permission, requestPermission] = useCameraPermissions();
-  const [fps] = useState(0);
   const cameraRef = useRef<ExpoCamera>(null);
 
   useEffect(() => {
@@ -62,7 +62,7 @@ export default function CameraView({ onDetection, isDetectionEnabled }: CameraVi
               検出: {isDetectionEnabled ? 'オン' : 'オフ'}
             </ThemedText>
             <ThemedText style={styles.statusText}>
-              FPS: {fps}
+              FPS: {currentFPS || 0}
             </ThemedText>
           </View>
         </View>

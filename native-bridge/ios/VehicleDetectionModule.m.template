@@ -1,0 +1,46 @@
+//
+//  VehicleDetectionModule.m
+//  VehicleDetector
+//
+//  Core ML Vehicle Detection Implementation
+//
+
+#import "VehicleDetectionModule.h"
+#import <React/RCTLog.h>
+
+@implementation VehicleDetectionModule
+
+RCT_EXPORT_MODULE();
+
+RCT_EXPORT_METHOD(loadModel:(NSString *)modelPath
+                  resolver:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject)
+{
+    // Implementation for loading Core ML model
+    // TODO: Add actual Core ML model loading logic
+    resolve(@"Core ML model loaded successfully");
+}
+
+RCT_EXPORT_METHOD(detectVehicles:(NSString *)imageUri
+                  confidence:(double)confidenceThreshold
+                  resolver:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject)
+{
+    // Implementation for Core ML vehicle detection
+    // TODO: Add actual detection logic with Vision framework
+    NSArray *mockDetections = @[@{
+        @"id": [[NSUUID UUID] UUIDString],
+        @"class": @"car",
+        @"confidence": @(0.85),
+        @"boundingBox": @{
+            @"x": @(100),
+            @"y": @(200),
+            @"width": @(150),
+            @"height": @(100)
+        }
+    }];
+    
+    resolve(mockDetections);
+}
+
+@end

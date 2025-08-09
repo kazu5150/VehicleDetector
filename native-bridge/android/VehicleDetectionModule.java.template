@@ -1,0 +1,15 @@
+// VehicleDetectionModule.java
+// TensorFlow Lite Vehicle Detection Native Module
+// Place in: android/app/src/main/java/com/vehicledetector/modules/
+
+// Key imports:
+// import org.tensorflow.lite.Interpreter;
+// import com.facebook.react.bridge.ReactMethod;
+// import com.facebook.react.bridge.Promise;
+
+// Key methods to implement:
+// @ReactMethod loadModel(String modelPath, Promise promise)
+// @ReactMethod detectVehicles(String imageUri, double confidence, Promise promise)
+
+// TODO: Implement full TensorFlow Lite integration
+// See INTEGRATION_GUIDE.md for complete implementation details
